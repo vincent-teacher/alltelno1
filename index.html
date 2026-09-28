@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ff6f61">
+<title>楊梅高中分機覽表</title>
+<meta name="description" content="桃園市立楊梅高級中學語音電話分機一覽表：瀏覽、檢索、撥號與分機挑戰。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📞%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" class="app">
+  <div class="zoomer" id="zoomer">
+
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="首頁">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a65"/><stop offset=".5" stop-color="#ec407a"/><stop offset="1" stop-color="#7e57c2"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="url(#lg)"/><path d="M22 16c2-1 4 0 5 2l3 7c1 2 0 4-1 5l-3 2c2 5 6 9 11 11l2-3c1-2 3-2 5-1l7 3c2 1 3 3 2 5l-2 5c-1 2-3 3-5 3-17-1-30-14-31-31 0-2 1-4 3-5z" fill="#fff"/><circle cx="46" cy="18" r="3" fill="#fff59d"/><circle cx="52" cy="26" r="2" fill="#b2ff59"/></svg>
+        </span>
+        <span class="brand-text">
+          <strong data-i18n="title">楊梅高中分機覽表</strong>
+          <small data-i18n="subtitle">桃園市立楊梅高級中學語音電話分機一覽表</small>
+        </span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-btn" id="quickTheme" aria-label="切換色系" title="切換色系">🌗</button>
+        <button class="icon-btn" id="quickSound" aria-label="音效" title="音效">🔊</button>
+        <button class="icon-btn gear" id="openSettings" aria-label="顯示與操作設定" title="顯示與操作設定">⚙️</button>
+      </div>
+    </header>
+
+    <nav class="tabs" id="tabs" aria-label="主選單">
+      <button data-view="home"><span class="ti">🏠</span><span data-i18n="navHome">首頁</span></button>
+      <button data-view="browse"><span class="ti">📇</span><span data-i18n="navBrowse">瀏覽</span></button>
+      <button data-view="search"><span class="ti">🔍</span><span data-i18n="navSearch">檢索</span></button>
+      <button data-view="map"><span class="ti">🗺️</span><span data-i18n="navMap">號碼地圖</span></button>
+      <button data-view="fav"><span class="ti">⭐</span><span data-i18n="navFav">常用</span></button>
+      <button data-view="quiz"><span class="ti">🎮</span><span data-i18n="navQuiz">挑戰</span></button>
+    </nav>
+
+    <main id="view" class="view" tabindex="-1"></main>
+
+    <footer class="foot">
+      <p><span data-i18n="footSrc">資料來源：桃園市立楊梅高級中學語音電話分機一覽表</span> · <span data-i18n="footEditor">編製：總務處</span> · <span data-i18n="footVer">版本</span> 115/09/07</p>
+      <p><a href="分機一覽表.pdf" target="_blank" rel="noopener" data-i18n="footPdf">📄 開啟原始 PDF</a></p>
+    </footer>
+
+    <!-- 設定面板 -->
+    <div class="drawer-mask" id="drawerMask" hidden></div>
+    <aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="setTitle">
+      <div class="drawer-head">
+        <h2 id="setTitle" data-i18n="setTitle">⚙️ 顯示與操作設定</h2>
+        <button class="icon-btn" id="closeSettings" aria-label="關閉">✖️</button>
+      </div>
+      <div class="drawer-body" id="settingsBody"></div>
+      <div class="drawer-foot">
+        <button class="btn ghost" id="resetSettings" data-i18n="setReset">↺ 恢復預設</button>
+      </div>
+    </aside>
+
+    <!-- 詳細資訊 -->
+    <div class="modal-mask" id="modal" hidden>
+      <div class="modal" role="dialog" aria-modal="true" id="modalBox"></div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+</div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
